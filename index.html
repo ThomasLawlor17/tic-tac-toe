@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="./assets/logo.svg" />
+		<link href="styles.css" rel="stylesheet" type="text/css" />
+
+		<title>Tic Tac Toe | Thomas Lawlor</title>
+	</head>
+	<body>
+		<!-- New game menu start -->
+
+		Pick player 1's mark Remember: X goes first New Game (vs CPU) New Game (vs
+		player)
+
+		<!-- New game menu end -->
+
+		<!-- Game board start -->
+
+		<!-- x/o icon -->
+		turn X (You)
+		<!-- Your score -->
+		Ties
+		<!-- Ties score -->
+		X (CPU)
+		<!-- CPU score -->
+
+		Oh no, you lost You won! Player
+		<!-- 1/2 -->
+		wins!
+
+		<!-- x/o icon -->
+		takes the round Round tied Restart game? Quit Next round No, cancel Yes,
+		restart Game board end
+		<main id="setup">
+			<header></header>
+			<div class="heading-xs">PICK PLAYER 1'S MARK</div>
+			<label for="selector-x">X</label>
+			<input
+				type="radio"
+				name="selector"
+				class="selector"
+				id="selector-x"
+				value="x"
+				checked />
+			<label for="selector-o">O</label>
+			<input
+				type="radio"
+				name="selector"
+				class="selector"
+				id="selector-o"
+				value="o" />
+			<p>REMEMBER: X GOES FIRST</p>
+			<div class="player-number-buttons">
+				<button id="one-player-start">NEW GAME (VS CPU)</button>
+				<button id="two-players-start">
+					NEW GAME (VS PLAYER)
+				</button>
+			</div>
+		</main>
+		<main id="active">
+			<header>
+				<div class="logo"></div>
+				<div class="turn"><span id="current-turn"></span><span>TURN</span></div>
+				<button id="restart-btn"></button>
+			</header>
+			<table>
+				<tr>
+					<td class="cell" id="00" data-cell-index="00"></td>
+					<td class="cell" id="01" data-cell-index="01"></td>
+					<td class="cell" id="02" data-cell-index="02"></td>
+				</tr>
+				<tr>
+					<td class="cell" id="10" data-cell-index="10"></td>
+					<td class="cell" id="11" data-cell-index="11"></td>
+					<td class="cell" id="12" data-cell-index="12"></td>
+				</tr>
+				<tr>
+					<td class="cell" id="20" data-cell-index="20"></td>
+					<td class="cell" id="21" data-cell-index="21"></td>
+					<td class="cell" id="22" data-cell-index="22"></td>
+				</tr>
+			</table>
+			<div class="scores">
+				<div class="x-score">
+					<span>X (<span id="x-type"></span>)</span>
+					<span id="x-score">0</span>
+				</div>
+				<div class="ties"><span>TIES</span><span id="tie-score">0</span></div>
+				<div class="o-score">
+					<span>O (<span id="o-type"></span>)</span>
+					<span id="o-score">0</span>
+				</div>
+			</div>
+			<section id="restart">
+				<div id="restart-bg"></div>
+				<div class="restart-content">
+					<h1>RESTART GAME?</h1>
+					<div class="restart-btns">
+						<button id="cancel-restart-btn">NO, CANCEL</button>
+						<button id="confirm-restart-btn">YES, RESTART</button>
+					</div>
+				</div>
+			</section>
+			<section id="next-round">
+				<div class="next-round-content">
+					<span id="round-winner-name"></span>
+					<div id="round-result"><img src="" alt="" id="round-winner-icon"><h1 id="round-result-message"></h1></div>
+					<div class="next-round-btns">
+						<button id="quit">QUIT</button>
+						<button id="confirm-next-round">NEXT ROUND</button>
+					</div>
+				</div>
+			</section>
+		</main>
+		<script src="dist/index.js"></script>
+	</body>
+</html>
