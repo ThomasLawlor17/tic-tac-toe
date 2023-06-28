@@ -17,12 +17,13 @@ let scoreO = 0;
 let scoreT = 0;
 let theme: "dark" | "light" = "dark";
 
-const xIcon: string = "/assets/icon-x.svg";
-const oIcon: string = "/assets/icon-o.svg";
-const xIconDark: string = "/assets/icon-x-dark.svg";
-const oIconDark: string = "/assets/icon-o-dark.svg";
-const xIconOutline: string = "/assets/icon-x-outline.svg";
-const oIconOutline: string = "/assets/icon-o-outline.svg";
+const assetsLink: string = "https://thomaslawlor17.github.io/tic-tac-toe/assets/"
+const xIcon: string = `${assetsLink}icon-x.svg`;
+const oIcon: string = `${assetsLink}icon-o.svg`;
+const xIconDark: string = `${assetsLink}icon-x-dark.svg`;
+const oIconDark: string = `${assetsLink}icon-o-dark.svg`;
+const xIconOutline: string = `${assetsLink}icon-x-outline.svg`;
+const oIconOutline: string = `${assetsLink}icon-o-outline.svg`;
 
 // Setup Document Elements
 // Change player 1 icon x or o
