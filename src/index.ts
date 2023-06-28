@@ -17,8 +17,8 @@ let scoreO = 0;
 let scoreT = 0;
 let theme: "dark" | "light" = "dark";
 
-const xIcon: string = "/assets/icon-x.svg";
-const oIcon: string = "/assets/icon-o.svg";
+const xIcon: string = "./assets/icon-x.svg";
+const oIcon: string = "./assets/icon-o.svg";
 const xIconDark: string = "/assets/icon-x-dark.svg";
 const oIconDark: string = "/assets/icon-o-dark.svg";
 const xIconOutline: string = "/assets/icon-x-outline.svg";
