@@ -61,11 +61,14 @@ const restartSection = document.getElementById("restart")!;
 const confirmRestart = document.getElementById("confirm-restart-btn")!;
 document
 	.getElementById("cancel-restart-btn")
-	?.addEventListener("click", () => (restartSection.style.display = "none"));
-document
-	.getElementById("restart-bg")
-	?.addEventListener("click", () => (restartSection.style.display = "none"));
-document
+	?.addEventListener("click", () => {
+		restartSection.classList.add('exit')
+		setTimeout(() => {
+			restartSection.style.display = "none"
+			restartSection.classList.remove('exit')
+		}, 500);
+	});
+	document
 	.getElementById("restart-btn")
 	?.addEventListener("click", () => (restartSection.style.display = "block"));
 // Hide restart section
@@ -153,7 +156,6 @@ const changeWinCellColor = (player: "X" | "O") => {
 		document.getElementById(winCells.b)!,
 		document.getElementById(winCells.c)!,
 	];
-	console.log(cellElements);
 	const cellChange = (cell: HTMLElement) => {
 		cell.style.transition = "background-color 0.3s ease-in";
 		if (cell === cellElements[0]) {

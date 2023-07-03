@@ -120,16 +120,43 @@ main {
 	width: 100vw;
 	height: 100vh;
 	background-color: var(--navy-main);
-}
-
-/* Setup Page */
-main#setup {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: all 2s linear;
+	overflow: hidden;
 }
-main#setup section {
+@media (max-width: 500px) {
+	button {
+		font-size: 16px;
+		letter-spacing: 1px;
+	}
+	.main-btn {
+		height: 48px;
+	}
+	.secondary-btn {
+		height: 48px;
+	}
+	.heading-l {
+		font-size: 24px;
+		letter-spacing: 1.5px;
+	}
+	.heading-m {
+		font-size: 20px;
+		letter-spacing: 1.25px;
+	}
+	.heading-s {
+		font-size: 16px;
+		letter-spacing: 1px;
+	}
+	.heading-xs {
+		font-size: 14px;
+		letter-spacing: 0.875px;
+	}
+}
+
+/* Setup Page */
+#setup {
+	transition: all 2s linear;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -208,19 +235,21 @@ main#setup section {
 #two-players-start {
 	margin-top: 20px;
 }
-@media (max-width: 414px) {
-	main#setup section {
+@media (max-width: 500px) {
+	#setup {
 		max-width: 327px;
+		gap: 32px;
 	}
 }
 
 /* Active page */
-main#active {
+#active {
+	width: 460px;
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	flex-direction: column;
+	gap: 20px;
 }
-main#active header {
+#active header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -228,12 +257,6 @@ main#active header {
     transition-delay: .5s, 0;
     transition-timing-function: ease-out, ease;
     transition-duration: 1s;
-}
-main#active section.game {
-	width: 460px;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
 }
 #restart-btn {
 	width: 52px;
@@ -263,7 +286,7 @@ main#active section.game {
 	box-shadow: 0px -4px 0px #10212a inset;
 }
 .cell {
-	width: 140px;
+	width: 138px;
 	height: 132px;
 	background-color: var(--navy-hl);
 	border-radius: 15px;
@@ -328,6 +351,24 @@ tr {
 .o-score {
 	background-color: var(--yellow-main);
 }
+@media (max-width: 500px) {
+	#active {
+		width: 327px;
+	}
+	.cell {
+		width: 94px;
+		height: 88px;
+		background-size: 40px;
+	}
+	.cell img {
+		width: 40px;
+		height: 40px;
+	}
+	.scores > div {
+		width: 96px;
+		height: 64px;
+	}
+}
 
 /* Restart section and next round section */
 #restart,
@@ -360,7 +401,6 @@ tr {
 	display: flex;
 	flex-direction: column;
 	gap: 31px;
-	padding: 26px 0;
 	z-index: 2;
 	background-color: var(--navy-hl);
 	padding: 66px 0;
@@ -394,68 +434,87 @@ tr {
 	padding-right: 16px;
 }
 
+@media (max-width: 500px) {
+	.next-round-content {
+		padding: 40px 0 48px 0;
+		gap: 16px;
+	}
+	#round-result {
+		gap: 8px;
+		margin-bottom: 8px;
+	}
+	#round-result img {
+		width: 30px;
+		height: 30px;
+	}
+	.restart-content {
+		padding: 61px 0;
+		gap: 24px;
+	}
+}
+
 
 /* Animations */
-main#setup header {
+#setup header {
     animation: fadeDelayEighty 1.5s ease-out;
     transition: opacity 0.3s ease-out;
 }
-main#setup .icon-select {
+#setup .icon-select {
     animation: translateDown 1s ease, fadeDelayTwenty 1s ease-out;
     transition-property: opacity, transform;
     transition-delay: .5s, 0;
     transition-timing-function: ease-out, ease;
     transition-duration: 1s;
 }
-main#setup #one-player-start {
+#setup #one-player-start {
     animation: translateRight 1s ease, fadeDelayTwenty 1s ease-out;
     transition-property: opacity, transform;
     transition-delay: .5s, 0;
     transition-timing-function: ease-out, ease;
     transition-duration: 1s;
 }
-main#setup #two-players-start {
+#setup #two-players-start {
     animation: translateLeft 1s ease, fadeDelayTwenty 1s ease-out;
     transition-property: opacity, transform;
     transition-delay: .5s, 0;
     transition-timing-function: ease-out, ease;
     transition-duration: 1s;
 }
-main#setup.exit header {
+#setup.exit header {
     opacity: 0;
 }
-main#setup.exit .icon-select {
+#setup.exit .icon-select {
     opacity: 0;
     transform: translateY(-200px);
 }
-main#setup.exit #one-player-start {
+#setup.exit #one-player-start {
     opacity: 0;
     transform: translateX(-200px);
 }
-main#setup.exit #two-players-start {
+#setup.exit #two-players-start {
     opacity: 0;
     transform: translateX(200px);
 }
 
 
-main#active header {
+#active header {
     animation: translateDown 1s ease, fadeDelayTwenty 1s ease-out;
 }
-main#active .scores {
+#active .scores {
     animation: translateUp 1s ease, fadeDelayTwenty 1s ease-out;
 }
-main#active tbody {
+#active tbody {
     animation: translateRight 1s ease, fadeDelayTwenty 1s ease-out;
 }
-main#active.exit tbody {
+#active.exit tbody {
     opacity: 0;
     transform: translateX(-200px);
 }
-main#active.exit .scores {
+#active.exit .scores {
     opacity: 0;
     transform: translateY(200px);
 }
-main#active.exit header {
+#active.exit header {
     opacity: 0;
     transform: translateY(-200px);
 }
@@ -472,7 +531,7 @@ main#active.exit header {
 #turn-x-icon, #turn-o-icon {
     animation: scaleIn 0.2s ease;
 }
-main#active.next-round .cell img {
+#active.next-round .cell img {
     scale: 0;
 }
 /* Keyframes */

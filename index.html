@@ -5,13 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" href="./assets/logo.svg" />
 		<link href="styles.css" rel="stylesheet" type="text/css" />
-		<link rel="import" href="./assets">
+		<link rel="import" href="./assets" />
 
 		<title>Tic Tac Toe | Thomas Lawlor</title>
 	</head>
 	<body>
-		<main id="setup">
-			<section>
+		<main>
+			<section id="setup">
 				<header>
 					<svg width="72" height="32" xmlns="http://www.w3.org/2000/svg">
 						<g fill="none" fill-rule="evenodd">
@@ -67,83 +67,81 @@
 					</button>
 				</div>
 			</section>
-		</main>
-		<main id="active">
-			<section class="game">
-				<header>
-					<div class="logo">
-						<svg width="72" height="32" xmlns="http://www.w3.org/2000/svg">
-							<g fill="none" fill-rule="evenodd">
+			<section id="active">
+					<header>
+						<div class="logo">
+							<svg width="72" height="32" xmlns="http://www.w3.org/2000/svg">
+								<g fill="none" fill-rule="evenodd">
+									<path
+										d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z"
+										fill="#31C3BD" />
+									<path
+										d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z"
+										fill="#F2B137"
+										fill-rule="nonzero" />
+								</g>
+							</svg>
+						</div>
+						<div class="turn">
+							<svg
+								id="turn-x-icon"
+								width="20"
+								height="20"
+								viewBox="0.27 0.27 63.46 63.46">
 								<path
-									d="M8.562 1.634 16 9.073l7.438-7.439a3 3 0 0 1 4.243 0l2.685 2.685a3 3 0 0 1 0 4.243L22.927 16l7.439 7.438a3 3 0 0 1 0 4.243l-2.685 2.685a3 3 0 0 1-4.243 0L16 22.927l-7.438 7.439a3 3 0 0 1-4.243 0L1.634 27.68a3 3 0 0 1 0-4.243L9.073 16 1.634 8.562a3 3 0 0 1 0-4.243L4.32 1.634a3 3 0 0 1 4.243 0Z"
-									fill="#31C3BD" />
+									d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
+									fill="currentColor"
+									fill-rule="evenodd" />
+							</svg>
+							<svg
+								id="turn-o-icon"
+								width="20"
+								height="20"
+								viewBox="0.27 0.27 63.46 63.46">
 								<path
-									d="M56.1 0c8.765 0 15.87 7.106 15.87 15.87 0 8.766-7.105 15.871-15.87 15.871-8.765 0-15.87-7.105-15.87-15.87C40.23 7.106 47.334 0 56.1 0Zm0 9.405a6.466 6.466 0 1 0 0 12.931 6.466 6.466 0 0 0 0-12.931Z"
-									fill="#F2B137"
-									fill-rule="nonzero" />
-							</g>
-						</svg>
+									d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+									fill="currentColor" /></svg
+							><span>TURN</span>
+						</div>
+						<button id="restart-btn">
+							<svg width="20" height="20">
+								<path
+									d="M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z"
+									fill="#1F3641" />
+							</svg>
+						</button>
+					</header>
+					<table>
+						<tr>
+							<td class="cell" id="00" data-cell-index="00"></td>
+							<td class="cell" id="01" data-cell-index="01"></td>
+							<td class="cell" id="02" data-cell-index="02"></td>
+						</tr>
+						<tr>
+							<td class="cell" id="10" data-cell-index="10"></td>
+							<td class="cell" id="11" data-cell-index="11"></td>
+							<td class="cell" id="12" data-cell-index="12"></td>
+						</tr>
+						<tr>
+							<td class="cell" id="20" data-cell-index="20"></td>
+							<td class="cell" id="21" data-cell-index="21"></td>
+							<td class="cell" id="22" data-cell-index="22"></td>
+						</tr>
+					</table>
+					<div class="scores">
+						<div class="x-score">
+							<span class="body">X (<span id="x-type"></span>)</span>
+							<span id="x-score" class="heading-m">0</span>
+						</div>
+						<div class="ties">
+							<span class="body">TIES</span
+							><span id="tie-score" class="heading-m">0</span>
+						</div>
+						<div class="o-score">
+							<span class="body">O (<span id="o-type"></span>)</span>
+							<span id="o-score" class="heading-m">0</span>
+						</div>
 					</div>
-					<div class="turn">
-						<svg
-							id="turn-x-icon"
-							width="20"
-							height="20"
-							viewBox="0.27 0.27 63.46 63.46">
-							<path
-								d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z"
-								fill="currentColor"
-								fill-rule="evenodd" />
-						</svg>
-						<svg
-							id="turn-o-icon"
-							width="20"
-							height="20"
-							viewBox="0.27 0.27 63.46 63.46">
-							<path
-								d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
-								fill="currentColor" /></svg
-						><span>TURN</span>
-					</div>
-					<button id="restart-btn">
-						<svg width="20" height="20">
-							<path
-								d="M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z"
-								fill="#1F3641" />
-						</svg>
-					</button>
-				</header>
-				<table>
-					<tr>
-						<td class="cell" id="00" data-cell-index="00"></td>
-						<td class="cell" id="01" data-cell-index="01"></td>
-						<td class="cell" id="02" data-cell-index="02"></td>
-					</tr>
-					<tr>
-						<td class="cell" id="10" data-cell-index="10"></td>
-						<td class="cell" id="11" data-cell-index="11"></td>
-						<td class="cell" id="12" data-cell-index="12"></td>
-					</tr>
-					<tr>
-						<td class="cell" id="20" data-cell-index="20"></td>
-						<td class="cell" id="21" data-cell-index="21"></td>
-						<td class="cell" id="22" data-cell-index="22"></td>
-					</tr>
-				</table>
-				<div class="scores">
-					<div class="x-score">
-						<span class="body">X (<span id="x-type"></span>)</span>
-						<span id="x-score" class="heading-m">0</span>
-					</div>
-					<div class="ties">
-						<span class="body">TIES</span
-						><span id="tie-score" class="heading-m">0</span>
-					</div>
-					<div class="o-score">
-						<span class="body">O (<span id="o-type"></span>)</span>
-						<span id="o-score" class="heading-m">0</span>
-					</div>
-				</div>
 			</section>
 			<section id="restart">
 				<div class="restart-content">
