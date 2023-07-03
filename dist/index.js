@@ -1,5 +1,5 @@
 "use strict";
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d;
 let data = [
     ["", "", ""],
     ["", "", ""],
@@ -18,12 +18,13 @@ let scoreX = 0;
 let scoreO = 0;
 let scoreT = 0;
 let theme = "dark";
-const xIcon = "./assets/icon-x.svg";
-const oIcon = "./assets/icon-o.svg";
-const xIconDark = "/assets/icon-x-dark.svg";
-const oIconDark = "/assets/icon-o-dark.svg";
-const xIconOutline = "/assets/icon-x-outline.svg";
-const oIconOutline = "/assets/icon-o-outline.svg";
+const assetsLink = "https://thomaslawlor17.github.io/tic-tac-toe/assets/";
+const xIcon = `${assetsLink}icon-x.svg`;
+const oIcon = `${assetsLink}icon-o.svg`;
+const xIconDark = `${assetsLink}icon-x-dark.svg`;
+const oIconDark = `${assetsLink}icon-o-dark.svg`;
+const xIconOutline = `${assetsLink}icon-x-outline.svg`;
+const oIconOutline = `${assetsLink}icon-o-outline.svg`;
 // Setup Document Elements
 // Change player 1 icon x or o
 (_a = document
@@ -52,11 +53,15 @@ const tieScoreIdentifier = document.getElementById("tie-score");
 const restartSection = document.getElementById("restart");
 const confirmRestart = document.getElementById("confirm-restart-btn");
 (_c = document
-    .getElementById("cancel-restart-btn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => (restartSection.style.display = "none"));
+    .getElementById("cancel-restart-btn")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
+    restartSection.classList.add('exit');
+    setTimeout(() => {
+        restartSection.style.display = "none";
+        restartSection.classList.remove('exit');
+    }, 500);
+});
 (_d = document
-    .getElementById("restart-bg")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => (restartSection.style.display = "none"));
-(_e = document
-    .getElementById("restart-btn")) === null || _e === void 0 ? void 0 : _e.addEventListener("click", () => (restartSection.style.display = "block"));
+    .getElementById("restart-btn")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", () => (restartSection.style.display = "block"));
 // Hide restart section
 restartSection.style.display = "none";
 // New Game buttons or quit to menu
@@ -127,7 +132,6 @@ const changeWinCellColor = (player) => {
         document.getElementById(winCells.b),
         document.getElementById(winCells.c),
     ];
-    console.log(cellElements);
     const cellChange = (cell) => {
         cell.style.transition = "background-color 0.3s ease-in";
         if (cell === cellElements[0]) {
